@@ -1,7 +1,11 @@
-export default function Layout(){
-    return(
+import { Inter } from "next/font/google";
+
+const inter = Inter({subsets: ["latin"]})
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+    return (
         <html>
-            <body>Auth Section</body>
+            <body className={inter.className}>{children}</body>
         </html>
-    )
+    );
 }
