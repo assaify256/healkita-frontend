@@ -1,0 +1,56 @@
+.sign-up-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f1de;
+
+    h1 {
+        margin-bottom: 1rem;
+        align-self: center;
+        font-size: 1.6rem;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        background-color: #a3c4f3;
+        padding: 2rem;
+        border-radius: 12px;
+        width: 30%;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.2rem;
+    }
+
+    input {
+        border: none;
+        outline: none;border-radius: 8px;
+        font-size: 1.2rem;
+        padding: 0.5rem 0.3rem 0.3rem 0.3rem;
+    }
+
+    label {
+        font-size: 1.4rem;
+        color: black;
+        margin-bottom: 0.2rem;
+    }
+
+    button {
+        border: none;
+        outline: none;
+        background-color: #1f487e;
+        color: white;
+        padding: 0.8rem;
+        font-size: 1.2rem;
+        border-radius: 6px;
+    }
+
+    a {
+        color: #6a4c93;
+    }
+}
