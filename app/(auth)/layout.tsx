@@ -1,5 +1,5 @@
 //dependencies
-
+"use client"
 import { Inter } from "next/font/google";
 
 //styles 
