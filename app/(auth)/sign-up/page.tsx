@@ -13,7 +13,7 @@ export default function Page() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [message, setMessage] = useState("");
     const router = useRouter();
-    function submitHandler(e:any) {
+    function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (email !== confirmEmail || password !== confirmPassword) {
             setMessage("Email or password didn't match");
@@ -37,7 +37,7 @@ export default function Page() {
             setEmail("");
             setPassword("");
         };
-        signUp()
+        signUp();
     }
     return (
         <main className={styles["sign-up-main"]}>

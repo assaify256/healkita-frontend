@@ -1,15 +1,15 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./styles.module.scss";
-import { useEffect, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Page() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const router = useRouter();
-    async function submitHandler(e:any) {
-        e.preventDefault()
+    async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
+        e.preventDefault();
         const response = await fetch(`http://localhost:8080/api/auth/sign-in`, {
             method: "POST",
             headers: {
@@ -21,8 +21,8 @@ export default function Page() {
             }),
             credentials: "include",
         });
-        setEmail("")
-        setPassword("")
+        setEmail("");
+        setPassword("");
     }
 
     return (
