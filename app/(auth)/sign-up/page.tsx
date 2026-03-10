@@ -11,12 +11,12 @@ export default function Page() {
     const [confirmEmail, setConfirmEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [message, setMessage] = useState("");
+    const [error, setError] = useState("");
     const router = useRouter();
     function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (email !== confirmEmail || password !== confirmPassword) {
-            setMessage("Email or password didn't match");
+            setError("Email or password didn't match");
             return;
         }
         const signUp = async () => {
@@ -34,8 +34,17 @@ export default function Page() {
                     credentials: "include",
                 },
             );
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.log(errorData);
+                if (errorData.message) {
+                    setError(errorData.message);
+                }
+            }
             setEmail("");
             setPassword("");
+            setConfirmEmail("")
+            setConfirmPassword("")
         };
         signUp();
     }
@@ -64,7 +73,6 @@ export default function Page() {
                         onChange={(e) => {
                             e.preventDefault();
                             setConfirmEmail(e.target.value);
-                            setMessage("");
                         }}
                     />
                 </section>
@@ -89,13 +97,12 @@ export default function Page() {
                         onChange={(e) => {
                             e.preventDefault();
                             setConfirmPassword(e.target.value);
-                            setMessage("");
                         }}
                     />
                 </section>
-                {message && (
+                {error && (
                     <section className={styles["error-message"]}>
-                        <p>{message}</p>
+                        <p>{error}</p>
                     </section>
                 )}
                 <section>
