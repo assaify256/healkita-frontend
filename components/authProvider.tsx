@@ -11,9 +11,9 @@ export default function AuthProvider({
 }) {
     const router = useRouter();
     const user = useAuth();
-    console.log(user);
-    if(!user.user){
-        return <p>Unauthorized User</p>
+    if (!user.user) {
+        throw new Error("Unauthorized User");
     }
+
     return <>{user.user && children}</>;
 }

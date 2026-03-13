@@ -13,40 +13,33 @@ export default function Page() {
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
     const router = useRouter();
-    function submitHandler(e: React.FormEvent<HTMLFormElement>) {
+    async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         if (email !== confirmEmail || password !== confirmPassword) {
             setError("Email or password didn't match");
             return;
         }
-        const signUp = async () => {
-            const response = await fetch(
-                `http://localhost:8080/api/auth/sign-up`,
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        email: email,
-                        password: password,
-                    }),
-                    credentials: "include",
-                },
-            );
-            if (!response.ok) {
-                const errorData = await response.json();
-                console.log(errorData);
-                if (errorData.message) {
-                    setError(errorData.message);
-                }
+
+        const response = await fetch(`http://localhost:8080/api/auth/sign-up`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            }),
+            credentials: "include",
+        });
+        if (!response.ok) {
+            const errorData = await response.json();
+            if (errorData.message) {
+                setError(errorData.message);
             }
-            setEmail("");
-            setPassword("");
-            setConfirmEmail("")
-            setConfirmPassword("")
-        };
-        signUp();
+            return;
+        } else {
+            router.push("/sign-in");
+        }
     }
     return (
         <main className={styles["sign-up-main"]}>

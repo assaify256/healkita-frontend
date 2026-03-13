@@ -7,6 +7,7 @@ import styles from "./styles.module.scss";
 export default function Page() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
     const router = useRouter();
     async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -21,8 +22,15 @@ export default function Page() {
             }),
             credentials: "include",
         });
-        setEmail("");
-        setPassword("");
+        if(!response.ok){
+            const errorData = await response.json();
+            if (errorData.message) {
+                setError(errorData.message);
+            }
+            return;
+        } else {
+            router.push("/dashboard")
+        }
     }
 
     return (

@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Laila&display=swap");
+
+.body {
+    display: flex;
+    flex-direction: row;
+
+    .nav {
+        left: 0;
+        color: white;
+        background-color: #004e64;
+        width: 20vw;
+        height: 100vh;
+        position: fixed;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+
+            li {
+                height: 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+            a {
+                margin: 1.2rem;
+                padding: 0.8rem;
+                border-radius: 8px;
+                display: flex;
+                align-items: center;
+            }
+        }
+        .icon {
+            font-size: 24px;
+            margin-right: 1rem;
+        }
+        .active {
+            background-color: #00a5cf;
+        }
+    }
+
+    .logo-container {
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+
+        .inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .app-logo {
+                margin-right: 1rem;
+            }
+        }
+        .title {
+            display: flex;
+            flex-direction: column;
+            h1,
+            p {
+                margin: 0;
+                padding: 0;
+            }
+            h1 {
+                font-family: "Laila";
+                font-weight: 600;
+            }
+        }
+    }
+
+    .page {
+        flex: 4;
+        position: fixed;
+        left: 20vw;
+    }
+}
