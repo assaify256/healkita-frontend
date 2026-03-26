@@ -1,3 +1,5 @@
-export default function Page(){
-    return <main></main>
+import { redirect } from "next/navigation"
+
+export default function page(){
+    redirect("/dashboard/input/exercise")
 }

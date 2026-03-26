@@ -1,17 +1,51 @@
 @import url("https://fonts.googleapis.com/css2?family=Laila&display=swap");
 
 .body {
-    display: flex;
-    flex-direction: row;
-
+    display: grid;
+    min-height: 100vh;
+    grid-template-areas:
+        "nav header"
+        "nav main"
+        "nav footer";
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: 4rem 1fr 4rem;
     .nav {
-        left: 0;
+        grid-area: nav;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        height: 100%;
+        width: 20rem;
         color: white;
         background-color: #004e64;
-        width: 20vw;
-        height: 100vh;
-        position: fixed;
-
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            flex-wrap: wrap;
+            .inner {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-wrap: wrap;
+                .app-logo {
+                    margin-right: 1rem;
+                }
+            }
+            .title {
+                display: flex;
+                flex-direction: column;
+                h1,
+                p {
+                    margin: 0;
+                    padding: 0;
+                }
+                h1 {
+                    font-family: "Laila";
+                    font-weight: 600;
+                }
+            }
+        }
         ul {
             display: flex;
             flex-direction: column;
@@ -21,6 +55,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                
             }
             a {
                 margin: 1.2rem;
@@ -28,48 +63,118 @@
                 border-radius: 8px;
                 display: flex;
                 align-items: center;
+                color: white;
             }
         }
         .icon {
             font-size: 24px;
             margin-right: 1rem;
+            fill: white;
         }
         .active {
             background-color: #00a5cf;
+            color: black;
         }
     }
 
-    .logo-container {
+    .header {
+        grid-area: header;
+        background-color: #f8f9fa;
         display: flex;
-        flex-direction: column;
-        padding: 2rem;
+        flex-direction: row;
+        align-items: center;
+        padding: 1rem;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px 0px;
+        .avatar {
+            font-size: 36px;
+            fill: #00a5cf;
+            margin-right: 1rem;
+        }
 
-        .inner {
+        .tier {
             display: flex;
             flex-direction: row;
             align-items: center;
-            .app-logo {
-                margin-right: 1rem;
-            }
-        }
-        .title {
-            display: flex;
-            flex-direction: column;
-            h1,
-            p {
-                margin: 0;
-                padding: 0;
-            }
-            h1 {
-                font-family: "Laila";
-                font-weight: 600;
-            }
+            color: gray;
+            font-size: 12px;
         }
     }
 
-    .page {
-        flex: 4;
-        position: fixed;
-        left: 20vw;
+    .main {
+        grid-area: main;
+        background-color: #CED4DA;
+        .home-grids {
+            display: grid;
+            margin: 1rem;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 12rem 12rem 12rem 18rem 12rem;
+            gap: 1rem 1rem;
+            grid-template-areas:
+                "weather weather tips tips"
+                "step activity todo todo"
+                "drink medication todo todo"
+                "nutrition nutrition composition composition"
+                "quote quote quote quote";
+        }
+
+        .box {
+            background-color: #f8f9fa;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 2px 2px 0px;
+            border-radius: 12px;
+            padding: 1rem;
+
+            .icon {
+                margin-right: 0.8rem;
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .weather {
+            grid-area: weather;
+            background-color: #2A7494;
+        }
+
+        .tips {
+            grid-area: tips;
+        }
+
+        .todo {
+            grid-area: todo;
+        }
+
+        .step {
+            grid-area: step;
+        }
+
+        .activity {
+            grid-area: activity;
+        }
+
+        .medication {
+            grid-area: medication;
+        }
+
+        .nutrition {
+            grid-area: nutrition;
+        }
+
+        .composition {
+            grid-area: composition;
+        }
+
+        .quote {
+            grid-area: quote;
+            background-color: #9FFFCB;
+        }
+    }
+
+    .footer {
+        grid-area: footer;
     }
 }

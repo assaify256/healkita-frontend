@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function useAuth() {
     const [user, setUser] = useState("");
+    const [isLoading, setIsloading] = useState(true);
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -18,18 +19,18 @@ export default function useAuth() {
                     },
                 );
                 const data = await response.json();
-                if(response.status === 401){
-                    setUser("")
+                if (response.status === 401) {
+                    setUser("");
+                    setIsloading(false)
                     return;
                 }
                 setUser(data);
-
+                setIsloading(false);
             } catch (error) {
                 console.log(error);
             }
         };
         fetchUser();
     }, []);
-
-    return { user };
+    return { user: user, isLoading: isLoading };
 }

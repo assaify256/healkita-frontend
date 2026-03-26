@@ -10,10 +10,13 @@ export default function AuthProvider({
     children: React.ReactNode;
 }) {
     const router = useRouter();
-    const user = useAuth();
-    if (!user.user) {
-        throw new Error("Unauthorized User");
+    const {user, isLoading} = useAuth();
+    if(isLoading) {
+        return <p>Loading...</p>
+    }
+    if (!user && !isLoading) {
+        router.push("/sign-in")
     }
 
-    return <>{user.user && children}</>;
+    return <>{user && children}</>;
 }

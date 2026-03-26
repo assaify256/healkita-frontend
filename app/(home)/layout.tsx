@@ -1,6 +1,6 @@
 // modules
 import Image from "next/image";
-import {Inter} from "next/font/google";
+import {Poppins} from "next/font/google";
 import Link from "next/link";
 
 //files
@@ -12,12 +12,12 @@ import styles from "./styles.module.scss";
 import "../../app/globals.scss";
 
 
-const inter = Inter({subsets: ["latin"]})
+const poppins = Poppins({subsets: ["latin"], weight: "500"})
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html>
-            <body className={inter.className}>
+            <body className={poppins.className}>
                 <header className={styles["header"]}>
                     <Image src={logo} height="48" width="48" alt="App Logo"/>
                     <h1>Healkita</h1>
