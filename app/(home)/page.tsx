@@ -2,10 +2,13 @@ import HeroImage from "@/public/hero.png";
 import Image from "next/image";
 import styles from "./styles.module.scss";
 import Link from "next/link";
+import Loader from "@/components/loader/loader";
+import FullLoader from "@/components/loader/full-loader";
 
 export default function Page() {
     return (
         <main className={styles["main-content"]}>
+            <FullLoader/>
             <Hero />
             <WhatItIs />
             <Features />

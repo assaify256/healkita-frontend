@@ -4,15 +4,20 @@ import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import styles from "./styles.module.scss";
 import useAuth from "@/hooks/useAuth";
+import FullLoader from "@/components/loader/full-loader";
 
 export default function Page() {
+    // credentials state
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // error state
     const [error, setError] = useState("");
+
     const router = useRouter();
     const { user, isLoading } = useAuth();
     async function submitHandler(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
         const response = await fetch(`http://localhost:8080/api/auth/sign-in`, {
             method: "POST",
             headers: {
@@ -24,6 +29,8 @@ export default function Page() {
             }),
             credentials: "include",
         });
+
+        
         if (!response.ok) {
             const errorData = await response.json();
             if (errorData.message) {
@@ -77,7 +84,7 @@ export default function Page() {
         );
     } else {
         return (
-            <p>Loading...</p>
+            <FullLoader/>
         )
     }
 }
