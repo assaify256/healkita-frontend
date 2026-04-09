@@ -1,0 +1,18 @@
+
+
+.form-wrapper {
+    display: flex;
+    background-color: #f8f9fa;
+    margin: 1rem;
+    border-radius: 12px;
+    width: 50%;
+    // min-height: 12rem;
+    padding: 1.5rem;
+}
+
+.exercise-type {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+

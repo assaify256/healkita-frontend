@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import styles from "./styles.module.scss";
+import styles from "./page.module.scss";
 import useAuth from "@/hooks/useAuth";
 import FullLoader from "@/components/loader/full-loader";
 

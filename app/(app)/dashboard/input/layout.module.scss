@@ -1,0 +1,14 @@
+.input-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .input-tab {
+        display: flex;
+        flex-direction: row;
+
+        div {
+            margin: 1rem;
+        }
+    }
+}

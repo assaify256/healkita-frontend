@@ -2,7 +2,7 @@
 
 //styles
 import Link from "next/link";
-import styles from "./styles.module.scss";
+import styles from "./page.module.scss";
 import { FormEventHandler, useState } from "react";
 import { useRouter } from "next/navigation";
 import useAuth from "@/hooks/useAuth";

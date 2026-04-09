@@ -8,8 +8,8 @@ import Link from "next/link";
 import logo from "@/public/logo.png";
 
 //styles
-import styles from "./styles.module.scss";
-import "../../app/globals.scss";
+import styles from "./layout.module.scss";
+import "@/app/globals.scss";
 
 
 const poppins = Poppins({subsets: ["latin"], weight: "500"})

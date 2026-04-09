@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import styles from "../styles.module.scss";
+import styles from "./page.module.scss";
 import { MdOutlineSportsHandball } from "react-icons/md";
 
 export default function Page() {
