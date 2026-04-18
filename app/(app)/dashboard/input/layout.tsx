@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./layout.module.scss";
 
-export default function Layout({ children }: {children: React.ReactNode}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <main className={styles["input-main"]}>
             <h1>Add Health Data</h1>
@@ -14,17 +14,27 @@ export default function Layout({ children }: {children: React.ReactNode}) {
                 </div>
                 <div>
                     <p>
-                        <Link href="/dashboard/input/medicine">Medicine</Link>
+                        <Link href="/dashboard/input/medicine">
+                            Medicine (Coming Soon)
+                        </Link>
                     </p>
                 </div>
                 <div>
-                    <p><Link href="/dashboard/input/body-data">Body Data</Link></p>
+                    <p>
+                        <Link href="/dashboard/input/body-data">Body Data</Link>
+                    </p>
                 </div>
                 <div>
-                    <p><Link href="/dashboard/input/meal">Meals</Link></p>
+                    <p>
+                        <Link href="/dashboard/input/meal">Meals</Link>
+                    </p>
                 </div>
                 <div>
-                    <p><Link href="/dashboard/input/drink">Drinks</Link></p>
+                    <p>
+                        <Link href="/dashboard/input/drink">
+                            Drinks (Coming Soon)
+                        </Link>
+                    </p>
                 </div>
             </div>
             <div className={styles["form-wrapper"]}>{children}</div>

@@ -8,7 +8,6 @@ interface NavLinkProps {
     href: `/${string}`;
     icon: React.ReactNode;
     text: string;
-    isActive: boolean;
 }
 
 export default function NavLink({

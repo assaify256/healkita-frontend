@@ -8,13 +8,13 @@ export default function Page() {
     const [activityType, setActivityType] = useState("");
     return (
         <div className={styles["form-main"]}>
-            <div className={styles["title"]}>
+            <div className={styles["title-container"]}>
                 <MdOutlineSportsHandball className={styles["title-icon"]} />
                 <h2>Exercise</h2>
             </div>
 
             <section className={styles["exercise-type"]}>
-                <label htmlFor="exercise-type">Exercise Type</label>
+                <label htmlFor="exercise-type">Select Exercise Type</label>
                 <select
                     name="exercise-type"
                     onChange={(event) => setActivityType(event.target.value)}
@@ -24,7 +24,7 @@ export default function Page() {
                     <option value="other">Other Exercise</option>
                 </select>
             </section>
-            {activityType && <section className={styles["divider"]}></section>}
+            {activityType && <hr/>}
             {activityType === "walk" && <WalkForm />}
             {activityType === "other" && <ExerciseForm />}
         </div>

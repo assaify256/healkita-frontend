@@ -1,10 +1,6 @@
 import { Poppins } from "next/font/google";
 import styles from "./styles.module.scss";
 import "@/app/globals.scss";
-import Link from "next/link";
-import { IoGlobeOutline, IoHome, IoStatsChart } from "react-icons/io5";
-import AuthProvider from "@/components/authProvider";
-import { TbReport } from "react-icons/tb";
 import { FaCirclePlus } from "react-icons/fa6";
 import Image from "next/image";
 import applogo from "@/public/logo.png";
@@ -12,16 +8,16 @@ import { FaUserCircle } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { PiFileMagnifyingGlassFill } from "react-icons/pi";
 import NavLink from "./nav-link";
+import { IoHome, IoStatsChart } from "react-icons/io5";
+import AuthProvider from "@/components/authProvider";
 
 interface LayoutPropsType {
     children: React.ReactNode;
 }
 
-const poppins = Poppins({ subsets: ["latin"], weight: "500" });
+const poppins = Poppins({ subsets: ["latin"], weight: ["300", "400", "500", "600"] });
 
-export default async function Layout({ children, params }: LayoutPropsType) {
-    const { tag } = await params;
-    console.log(tag);
+export default async function Layout({ children }: LayoutPropsType) {
     return (
         <html>
             <body className={`${poppins.className} ${styles["body"]}`}>
@@ -65,7 +61,9 @@ export default async function Layout({ children, params }: LayoutPropsType) {
                         </p>
                     </div>
                 </header>
-                <main className={styles["main"]}>{children}</main>
+                <main className={styles["main"]}>
+                    <AuthProvider>{children}</AuthProvider>
+                </main>
                 <footer className={styles["footer"]}>Footer</footer>
             </body>
         </html>

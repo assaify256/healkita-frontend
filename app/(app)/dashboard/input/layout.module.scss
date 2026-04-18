@@ -11,4 +11,14 @@
             margin: 1rem;
         }
     }
+
+    .form-wrapper {
+        display: flex;
+        background-color: #f8f9fa;
+        margin: 1rem;
+        border-radius: 12px;
+        width: 50%;
+        // min-height: 12rem;
+        padding: 1rem;
+    }
 }
